@@ -22,6 +22,9 @@ const Notifications = lazy(() => import('./pages/admin/Notifications'))
 const Profile = lazy(() => import('./pages/admin/Profile'))
 const Reports = lazy(() => import('./pages/admin/Reports'))
 const Settings = lazy(() => import('./pages/admin/Settings'))
+const AddStudent = lazy(() => import('./pages/admin/AddStudent'))
+const AddCourse = lazy(() => import('./pages/admin/AddCourse'))
+const AddInstructor = lazy(() => import('./pages/admin/AddInstructor'))
 const CreatorAnalytics = lazy(() => import('./pages/creator/Analytics'))
 const CreatorDashboard = lazy(() => import('./pages/creator/CreatorDashboard'))
 const EditContent = lazy(() => import('./pages/creator/EditContent'))
@@ -72,6 +75,12 @@ function App() {
           <Route path="/admin/courses" element={<ManageCourses />} />
           <Route path="/admin/instructors" element={<ManageInstructors />} />
           <Route path="/admin/students" element={<ManageStudents />} />
+          <Route path="/admin/manage-courses" element={<ManageCourses />} />
+          <Route path="/admin/manage-instructors" element={<ManageInstructors />} />
+          <Route path="/admin/manage-students" element={<ManageStudents />} />
+          <Route path="/admin/add-course" element={<AddCourse />} />
+          <Route path="/admin/add-instructor" element={<AddInstructor />} />
+          <Route path="/admin/add-student" element={<AddStudent />} />
           <Route path="/admin/content" element={<ContentApproval />} />
           <Route path="/admin/analytics" element={<Analytics />} />
           <Route path="/admin/notifications" element={<Notifications />} />

@@ -1,8 +1,10 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Eye, Pencil, Plus, Trash2 } from 'lucide-react'
 import { coursesSeed } from '../../data/adminDummyData'
 
 const ManageCourses = () => {
+  const navigate = useNavigate()
   const [courses, setCourses] = useState(coursesSeed)
   const [message, setMessage] = useState('')
 
@@ -18,7 +20,7 @@ const ManageCourses = () => {
           <h1 className="page-title">Manage Courses</h1>
           <p className="page-subtitle">Manage course catalog and lifecycle states</p>
         </div>
-        <button className="btn-primary inline-flex items-center gap-2" onClick={() => handleAction('Add Course clicked')} type="button">
+        <button className="btn-primary inline-flex items-center gap-2" onClick={() => navigate('/admin/add-course')} type="button">
           <Plus size={16} /> Add Course
         </button>
       </div>
