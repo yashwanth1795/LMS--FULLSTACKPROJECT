@@ -1,4 +1,4 @@
-import { LayoutDashboard, Users, BookOpen, GraduationCap, UserSquare2, ClipboardCheck, LineChart, Bell, MessageSquare, FileText, Settings, User, LogOut, Shield } from 'lucide-react'
+import { LayoutDashboard, Users, BookOpen, GraduationCap, UserSquare2, ClipboardCheck, LineChart, Bell, MessageSquare, FileText, Settings, User, LogOut, Shield, PlusSquare } from 'lucide-react'
 
 export const adminMenu = [
   { label: 'Dashboard', path: '/admin-dashboard', icon: LayoutDashboard },
@@ -6,6 +6,8 @@ export const adminMenu = [
   { label: 'Manage Courses', path: '/admin/courses', icon: BookOpen },
   { label: 'Manage Instructors', path: '/admin/instructors', icon: GraduationCap },
   { label: 'Manage Students', path: '/admin/students', icon: UserSquare2 },
+  { label: 'Add Assignment', path: '/add-assignment', icon: PlusSquare },
+  { label: 'Manage Assignments', path: '/admin/assignments', icon: FileText },
   { label: 'Content Approval', path: '/admin/content', icon: ClipboardCheck },
   { label: 'Analytics', path: '/admin/analytics', icon: LineChart },
   { label: 'Notifications', path: '/admin/notifications', icon: Bell },

@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Users, BookOpen, UserSquare2, GraduationCap, DollarSign, ClipboardCheck } from 'lucide-react'
 import { adminStats } from '../../data/adminDummyData'
+import { useAuth } from '../../context/AuthContext'
 
 const iconMap = {
   users: Users,
@@ -25,6 +26,7 @@ const Skeleton = () => (
 )
 
 const AdminDashboard = () => {
+  const { user } = useAuth()
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true)
 
@@ -37,9 +39,12 @@ const AdminDashboard = () => {
 
   return (
     <div className="page">
-      <div>
-        <h1 className="page-title">Admin Dashboard</h1>
-        <p className="page-subtitle">Command center for users, courses, approvals and operations</p>
+      <div className="flex items-end justify-between gap-3">
+        <div>
+          <h1 className="page-title">Admin Dashboard</h1>
+          <p className="page-subtitle">Command center for users, courses, approvals and operations</p>
+        </div>
+        {user?.role === 'admin' ? <Link to="/add-assignment" className="btn-primary">Add Assignment</Link> : null}
       </div>
 
       {loading ? (

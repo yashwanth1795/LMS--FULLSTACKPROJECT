@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom'
-import { LayoutDashboard, BookOpen, LineChart, Award, UserCircle2, LogOut } from 'lucide-react'
+import { LayoutDashboard, BookOpen, LineChart, Award, UserCircle2, LogOut, FileText } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 const items = [
   { label: 'Dashboard', to: '/student-dashboard', icon: LayoutDashboard },
   { label: 'My Courses', to: '/student/courses', icon: BookOpen },
+  { label: 'Assignments', to: '/student/assignments', icon: FileText },
   { label: 'Progress', to: '/student/progress', icon: LineChart },
   { label: 'Certificates', to: '/student/certificates', icon: Award },
   { label: 'Profile', to: '/student/profile', icon: UserCircle2 }

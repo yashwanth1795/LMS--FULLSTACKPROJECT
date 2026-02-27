@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { getInstructorActivity, getInstructorCourses, getInstructorMetrics } from '../../services/instructorApi'
+import { useAuth } from '../../context/AuthContext'
 
 const StatCard = ({ label, value }) => (
   <div className="card p-4">
@@ -11,6 +12,7 @@ const StatCard = ({ label, value }) => (
 )
 
 const InstructorDashboard = () => {
+  const { user } = useAuth()
   const [courses, setCourses] = useState([])
   const [metrics, setMetrics] = useState({ totalCourses: 0, totalStudents: 0, totalVideos: 0, completionRate: 0 })
   const [activity, setActivity] = useState([])
@@ -36,7 +38,10 @@ const InstructorDashboard = () => {
           <h1 className="page-title">Instructor Dashboard</h1>
           <p className="page-subtitle">Overview of your teaching business and course engagement</p>
         </div>
-        <Link to="/instructor/create-course" className="btn-primary">Create Course</Link>
+        <div className="flex items-center gap-2">
+          {user?.role === 'instructor' ? <Link to="/add-assignment" className="btn-secondary">Add Assignment</Link> : null}
+          <Link to="/instructor/create-course" className="btn-primary">Create Course</Link>
+        </div>
       </div>
 
       <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">

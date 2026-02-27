@@ -25,6 +25,7 @@ const Settings = lazy(() => import('./pages/admin/Settings'))
 const AddStudent = lazy(() => import('./pages/admin/AddStudent'))
 const AddCourse = lazy(() => import('./pages/admin/AddCourse'))
 const AddInstructor = lazy(() => import('./pages/admin/AddInstructor'))
+const AdminAssignmentManagementPage = lazy(() => import('./pages/admin/AssignmentManagementPage'))
 const CreatorAnalytics = lazy(() => import('./pages/creator/Analytics'))
 const CreatorDashboard = lazy(() => import('./pages/creator/CreatorDashboard'))
 const EditContent = lazy(() => import('./pages/creator/EditContent'))
@@ -38,6 +39,9 @@ const MyInstructorCourses = lazy(() => import('./pages/instructor/MyCourses'))
 const InstructorProfile = lazy(() => import('./pages/instructor/Profile'))
 const Students = lazy(() => import('./pages/instructor/Students'))
 const UploadVideo = lazy(() => import('./pages/instructor/UploadVideo'))
+const AssignmentManagementPage = lazy(() => import('./pages/instructor/AssignmentManagementPage'))
+const AssignmentSubmissionPage = lazy(() => import('./pages/student/AssignmentSubmissionPage'))
+const AddAssignmentPage = lazy(() => import('./pages/shared/AddAssignmentPage'))
 const Certificates = lazy(() => import('./pages/student/Certificates'))
 const CoursePlayer = lazy(() => import('./pages/student/CoursePlayer'))
 const MyCourses = lazy(() => import('./pages/student/MyCourses'))
@@ -82,6 +86,7 @@ function App() {
           <Route path="/admin/add-instructor" element={<AddInstructor />} />
           <Route path="/admin/add-student" element={<AddStudent />} />
           <Route path="/admin/content" element={<ContentApproval />} />
+          <Route path="/admin/assignments" element={<AdminAssignmentManagementPage />} />
           <Route path="/admin/analytics" element={<Analytics />} />
           <Route path="/admin/notifications" element={<Notifications />} />
           <Route path="/admin/messages" element={<Messages />} />
@@ -101,6 +106,7 @@ function App() {
           <Route path="/instructor/courses" element={<MyInstructorCourses />} />
           <Route path="/instructor/create-course" element={<CreateCourse />} />
           <Route path="/instructor/upload-video/:courseId" element={<UploadVideo />} />
+          <Route path="/instructor/assignments" element={<AssignmentManagementPage />} />
           <Route path="/instructor/students" element={<Students />} />
           <Route path="/instructor/analytics" element={<InstructorAnalytics />} />
           <Route path="/instructor/profile" element={<InstructorProfile />} />
@@ -116,10 +122,20 @@ function App() {
           <Route path="/student-dashboard" element={<StudentDashboard />} />
           <Route path="/student/courses" element={<MyCourses />} />
           <Route path="/student/progress" element={<Progress />} />
+          <Route path="/student/assignments" element={<AssignmentSubmissionPage />} />
           <Route path="/student/certificates" element={<Certificates />} />
           <Route path="/student/profile" element={<StudentProfile />} />
           <Route path="/student/course/:courseId" element={<CoursePlayer />} />
         </Route>
+
+        <Route
+          path="/add-assignment"
+          element={(
+            <ProtectedRoute>
+              <AddAssignmentPage />
+            </ProtectedRoute>
+          )}
+        />
 
         <Route
           element={

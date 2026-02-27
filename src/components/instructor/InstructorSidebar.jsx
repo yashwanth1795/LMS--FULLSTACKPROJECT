@@ -1,12 +1,14 @@
 ﻿import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { LayoutDashboard, BookOpen, PlusSquare, Upload, Users, BarChart3, UserCircle2, LogOut, GraduationCap } from 'lucide-react'
+import { LayoutDashboard, BookOpen, PlusSquare, Upload, Users, BarChart3, UserCircle2, LogOut, GraduationCap, FileText } from 'lucide-react'
 import { logoutUser } from '../../services/authService'
 
 const menu = [
   { label: 'Dashboard', to: '/instructor-dashboard', icon: LayoutDashboard },
   { label: 'My Courses', to: '/instructor/courses', icon: BookOpen },
   { label: 'Create Course', to: '/instructor/create-course', icon: PlusSquare },
+  { label: 'Add Assignment', to: '/add-assignment', icon: PlusSquare },
+  { label: 'Manage Assignments', to: '/instructor/assignments', icon: FileText },
   { label: 'Upload Video', to: '/instructor/upload-video/default', icon: Upload },
   { label: 'Students', to: '/instructor/students', icon: Users },
   { label: 'Analytics', to: '/instructor/analytics', icon: BarChart3 },
